@@ -10,32 +10,32 @@ class CalculatorTest {
 
     @ParameterizedTest
     @CsvSource({"4,5","2,3","1,1"})
-    void testMultiplyGoodCase(int x, int y){
+    void testMultiplyGoodCase(double x, double y){
         assertEquals(x*y,Calculator.multiply(x,y));
     }
 
     @ParameterizedTest
-    @CsvSource({"5,1","100,2","33,9"})
-    void testDivideGoodCase(int x, int y){
+    @CsvSource({"5.0,1.0","100.0,2.0","33.0,9.0"})
+    void testDivideGoodCase(double x, double y){
         assertEquals(x/y,Calculator.divide(x,y));
     }
     @Test
     void testDivideDivideBy0() throws ArithmeticException{
-        int x = 0;
-        int y = 0;
-        assertThrows(ArithmeticException.class ,() -> Calculator.divide(1,0));
+        double x = 2;
+        double y = 0;
+        assertThrows(ArithmeticException.class ,() -> Calculator.divide(x,y));
+    }
+
+    @ParameterizedTest
+    @CsvSource({"5.0,1","100,2","33,9"})
+    void testSumGoodCase(double x, double y){
+        assertEquals(x+y,Calculator.sum(x,y));
     }
 
     @ParameterizedTest
     @CsvSource({"5,1","100,2","33,9"})
-    void testSumGoodCase(int x, int y){
-        assertEquals(x+y,Calculator.divide(x,y));
-    }
-
-    @ParameterizedTest
-    @CsvSource({"5,1","100,2","33,9"})
-    void testSubtractGoodCase(int x, int y){
-        assertEquals(x-y,Calculator.divide(x,y));
+    void testSubtractGoodCase(double x, double y){
+        assertEquals(x-y,Calculator.subtract(x,y));
     }
 
 

@@ -3,17 +3,18 @@ package calculator;
 
 public class Calculator {
 
-    public static int multiply(int x, int y){
+    public static double multiply(double x, double y){
         return x*y;
     }
 
-    public static int divide(int x, int y) throws ArithmeticException{
+    public static double divide(double x, double y) throws ArithmeticException{
+        if(y==0.0) throw new ArithmeticException();
         return x/y;
     }
-    public static int sum(int x, int y){
+    public static double sum(double x, double y){
         return x+y;
     }
-    public static int subtract(int x, int y){
+    public static double subtract(double x, double y){
         return x-y;
     }
 }
